@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Start from "./js/start.js";
 import Sputnik from "./js/sputnik.js";
+import Ship from "./js/ship.js";
+import Moon from "./js/moon.js";
 import "./css/styles.css";
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
       </div>
       <Start />
       <Sputnik />
+      <Ship />
+      <Moon />
     </div>
   );
 }
