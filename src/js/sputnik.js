@@ -9,12 +9,12 @@ export class Sputnik extends React.Component {
     alert("Click");
   };
   render() {
-    const startButton = (
+    const sputnik = (
       <object className="sputnik" type="image/svg+xml" data="./svg/sputnik.svg">
         Your browser does not support SVG
       </object>
     );
-    return startButton;
+    return sputnik;
   }
 }
 export default Sputnik;

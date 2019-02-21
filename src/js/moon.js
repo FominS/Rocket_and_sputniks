@@ -1,18 +1,18 @@
 import React from "react";
 
-export class Ship extends React.Component {
+export class Moon extends React.Component {
   constructor(props) {
     super(props);
   }
   componentWillMount() {}
 
   render() {
-    const ship = (
-      <object className="ship" type="image/svg+xml" data="./svg/ship.svg">
+    const moon = (
+      <object className="moon" type="image/svg+xml" data="./svg/moon.svg">
         Your browser does not support SVG
       </object>
     );
-    return ship;
+    return moon;
   }
 }
-export default Ship;
+export default Moon;
