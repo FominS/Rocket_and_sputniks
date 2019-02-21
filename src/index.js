@@ -1,16 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import "./styles.css";
+import Start from "./js/start.js";
+import Sputnik from "./js/sputnik.js";
+import "./css/styles.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <div className="space">
+      <div className="earth">
+        <object type="image/svg+xml" data="./svg/earth.svg">
+          Your browser does not support SVG
+        </object>
+      </div>
+      <Start />
+      <Sputnik />
     </div>
   );
 }
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById("app");
 ReactDOM.render(<App />, rootElement);

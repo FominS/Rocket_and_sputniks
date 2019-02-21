@@ -1,0 +1,44 @@
+body {
+  background-image: url(./svg/space.svg);
+}
+#app {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.earth {
+  width: 200px;
+  height: 200px;
+  left: -webkit-calc(50% - 100px);
+  left: -moz-calc(50% - 100px);
+  left: calc(50% - 100px);
+  top: -webkit-calc(50% - 100px);
+  top: -moz-calc(50% - 100px);
+  top: calc(50% - 100px);
+  position: absolute;
+}
+
+.earth > object {
+  width: 200px;
+  height: 200px;
+}
+
+.start {
+  position: fixed;
+  bottom: 5px;
+  text-align: center;
+  width: 100%;
+}
+.start a {
+  padding: 4px 30px;
+  background-color: aqua;
+  border-radius: 3px;
+}
+.start a:hover {
+  cursor: pointer;
+}
+
+.sputnik {
+  width: 20px;
+}
