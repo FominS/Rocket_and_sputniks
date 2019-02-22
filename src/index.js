@@ -7,7 +7,7 @@ import "./css/styles.css";
 
 const allSpaceElementsCoords = {
   moon: {},
-  sputnik: {}
+  sputnikList: {}
 };
 
 class App extends React.Component {
