@@ -42,3 +42,53 @@ body {
 .sputnik {
   width: 20px;
 }
+
+.moon {
+  width: 50px;
+}
+
+.ship {
+  width: 20px;
+  position: fixed;
+  left: calc(50% - 10px);
+  top: calc(50% - 90px);
+}
+
+/*animation*/
+@keyframes circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes inner-circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.sputnik {
+  animation-name: sputnik;
+  position: fixed;
+  left: calc(50% - 10px);
+  top: calc(50% - 150px);
+  animation: circle 5s linear infinite;
+  transform-origin: 50% 150px;
+}
+
+.moon {
+  position: fixed;
+  left: calc(50% - 10px);
+  top: calc(50% - 300px);
+  animation: circle 10s linear infinite;
+  transform-origin: 50% 300px;
+}
+
+.start-ship {
+  transition: all 2s ease-in-out;
+  transform: translate(0, -50px);
+}

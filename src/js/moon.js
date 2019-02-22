@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-export class Sputnik extends React.Component {
+export class Moon extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
     const node = ReactDOM.findDOMNode(this);
-    let intervalId = setInterval(this.getCoords, 1000);
+    let intervalId = setInterval(this.getCoords, 100);
     this.setState({ intervalId: intervalId, node: node });
   }
   componentWillUnmount() {
@@ -17,16 +17,18 @@ export class Sputnik extends React.Component {
 
   getCoords = () => {
     let coords = this.state.node.getBoundingClientRect();
-    this.props.getCurrentCoords(coords);
+    this.props.getMoonCoords(coords);
   };
 
+  componentWillMount() {}
+
   render() {
-    const sputnik = (
-      <object className="sputnik" type="image/svg+xml" data="./svg/sputnik.svg">
+    const moon = (
+      <object className="moon" type="image/svg+xml" data="./svg/moon.svg">
         Your browser does not support SVG
       </object>
     );
-    return sputnik;
+    return moon;
   }
 }
-export default Sputnik;
+export default Moon;

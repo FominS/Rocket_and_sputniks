@@ -5,9 +5,7 @@ export class Start extends React.Component {
     super(props);
   }
   componentWillMount() {}
-  startShip = () => {
-    alert("Click");
-  };
+
   render() {
     const startButton = (
       <div className="start">
