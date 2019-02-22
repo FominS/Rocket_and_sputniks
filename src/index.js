@@ -70,6 +70,7 @@ class App extends React.Component {
       </div>
     );
   }
+
 }
 
 const rootElement = document.getElementById("app");

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 let flight = {}; //fly style
 
+
 export class Ship extends React.Component {
   constructor(props) {
     super(props);
@@ -42,6 +43,7 @@ export class Ship extends React.Component {
         type="image/svg+xml"
         data="./svg/ship.svg"
       >
+
         Your browser does not support SVG
       </object>
     );
