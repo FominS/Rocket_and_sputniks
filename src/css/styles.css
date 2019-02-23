@@ -26,12 +26,12 @@ body {
 
 .start {
   position: fixed;
-  bottom: 5px;
+  bottom: 20px;
   text-align: center;
   width: 100%;
 }
 .start a {
-  padding: 4px 30px;
+  padding: 6px 40px;
   background-color: aqua;
   border-radius: 3px;
 }
@@ -75,9 +75,9 @@ body {
   animation-name: sputnik;
   position: fixed;
   left: calc(50% - 10px);
-  top: calc(50% - 150px);
+  top: calc(50% - 200px);
   animation: circle 5s linear infinite;
-  transform-origin: 50% 150px;
+  transform-origin: 50% 200px;
 }
 
 .moon {
