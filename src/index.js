@@ -10,31 +10,35 @@ const allSpaceElementsCoords = {
   sputnikList: {}
 };
 
-const countOfSputnic = 4;
 
-let started = false;
+//const countOfSputnic = 4;
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  componentDidMount() {
+    this.setState({ countOfSputnik: 4 });
+  }
+
   getSputnikCoords = coords => {
     //console.log("sputnik1 x=", coords.x, ",y=", coords.y);
-    allSpaceElementsCoords.sputnik = coords;
+    allSpaceElementsCoords.sputnikList = coords;
   };
 
   getMoonCoords = coords => {
-    //console.log("moon x=", coords.x, ",y=", coords.y);
     allSpaceElementsCoords.moon = coords;
   };
 
   getShipCoords = coords => {
-    console.log("ship x=", coords.x, ",y=", coords.y);
+    //console.log("ship x=", coords.x, ",y=", coords.y);
     //success
     if (coords.y <= 0) {
       if (!alert("Ракета успешно вышла в открытый космос")) {
         window.location.reload();
+        return false;
       }
     }
 
@@ -50,12 +54,24 @@ class App extends React.Component {
         return false;
       }
     }
-    return true;
-  };
 
-  startShip = () => {
-    //this.setState({ start: true });
-    started = true;
+
+    //exception sputniks
+    for (let i = 0; i < allSpaceElementsCoords.sputnikList.length; i++) {
+      if (
+        coords.x - allSpaceElementsCoords.sputnikList[i].x < 30 &&
+        coords.x - allSpaceElementsCoords.sputnikList[i].x > 0 &&
+        coords.y - allSpaceElementsCoords.sputnikList[i].y < 20 &&
+        coords.y - allSpaceElementsCoords.sputnikList[i].y > 0
+      ) {
+        if (!alert("Произошло столкновение")) {
+          window.location.reload();
+          return false;
+        }
+      }
+    }
+    return true;
+
   };
 
   render() {
@@ -66,11 +82,9 @@ class App extends React.Component {
             Your browser does not support SVG
           </object>
         </div>
-        <Sputnik
-          getCurrentCoords={this.getSputnikCoords}
-          count={countOfSputnic}
-        />
-        <Ship startShip={started} getShipCoords={this.getShipCoords} />
+
+        <Sputnik getCurrentCoords={this.getSputnikCoords} count={this.state} />
+        <Ship getShipCoords={this.getShipCoords} />
         <Moon getMoonCoords={this.getMoonCoords} />
       </div>
     );

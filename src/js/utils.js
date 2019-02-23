@@ -11,10 +11,10 @@ class Utils {
         speed = this.randomize(8000, 4000);
         break;
       case "ship":
-        speed = this.randomize(5000, 1000);
+        speed = this.randomize(3000, 2000); //скорость ракеты ниже спутников, т.к. приеодолеваемое расстояние меньше
         break;
       case "moon":
-        speed = this.randomize(8000, 4000);
+        speed = this.randomize(22000, 19000);
         break;
     }
     return speed;

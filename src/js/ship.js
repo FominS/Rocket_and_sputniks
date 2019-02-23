@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Utils from "./utils.js";
 
 let flight = {}; //fly style
+const utils = new Utils();
 
 
 export class Ship extends React.Component {
@@ -24,15 +26,22 @@ export class Ship extends React.Component {
 
   startShip = () => {
     const node = ReactDOM.findDOMNode(this);
-    console.log("NODEEE", node);
-    debugger;
+
+
     const shipElement = node.getElementsByClassName("ship")[0];
     let intervalId = setInterval(this.getCoords, 100);
     this.setState({ intervalId: intervalId, node: shipElement });
-
+ 
+    const shipSpeed = utils.getSpeed("ship");
+    console.log(
+      "ship speed=",
+      ((shipElement.offsetTop + 30) / shipSpeed) * 1000,
+      "px/s"
+    );
     flight = {
       transform: "translate(0, -" + (shipElement.offsetTop + 30) + "px)",
-      transition: "all 2s ease-in-out"
+      transition: "all " + shipSpeed + "ms linear"
+
     };
   };
 

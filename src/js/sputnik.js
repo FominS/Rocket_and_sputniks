@@ -2,10 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Utils from "./utils.js";
 
-let utils = new Utils();
+const utils = new Utils();
 let getAnimation = () => {
+  const sputnikSpeed = utils.getSpeed("sputnik");
+  console.log(
+    "the speed of one of the sputniks = ",
+    ((2 * Math.PI * 200) / sputnikSpeed) * 1000,
+    " px/ms"
+  );
   return {
-    animation: "circle " + utils.getSpeed("sputnik") + "ms linear infinite",
+    animation: "circle " + sputnikSpeed + "ms linear infinite",
     left: "calc(" + utils.getOffset() + "% - 10px)",
     top: "calc(" + utils.getOffset() + "% - 200px)"
   };
@@ -17,9 +23,10 @@ export class Sputnik extends React.Component {
 
   componentDidMount() {
     const node = ReactDOM.findDOMNode(this);
-    console.log("node", node);
-    let intervalId = setInterval(this.getCoords, 1000);
-    this.setState({ intervalId: intervalId, node: node });
+    const elements = node.getElementsByClassName("sputnik");
+
+    let intervalId = setInterval(this.getCoords, 100);
+    this.setState({ intervalId: intervalId, sputnikList: elements });
   }
   componentWillUnmount() {
     console.log("unmount");
@@ -27,16 +34,21 @@ export class Sputnik extends React.Component {
   }
 
   getCoords = () => {
-    let coords = this.state.node.getBoundingClientRect();
+    let coords = [];
+    for (let i = 0; i < this.state.sputnikList.length; i++) {
+      coords.push(this.state.sputnikList[i].getBoundingClientRect());
+    }
     this.props.getCurrentCoords(coords);
   };
 
   render() {
     let array = [];
-    for (let i = 0; i < this.props.count; i++) {
-      array.push({
-        key: "sputnik#" + i
-      });
+    if (this.props.count && this.props.count.countOfSputnik) {
+      for (let i = 0; i < this.props.count.countOfSputnik; i++) {
+        array.push({
+          key: "sputnik#" + i
+        });
+      }
     }
 
     const sputnikList = array.map(element => (
