@@ -1,4 +1,5 @@
 import React from "react";
+
 import ReactDOM from "react-dom";
 import Utils from "./utils.js";
 
@@ -14,6 +15,7 @@ let getAnimation = () => {
     animation: "circle " + moonSpeed + "ms linear infinite"
   };
 };
+
 
 export class Moon extends React.Component {
   constructor(props) {

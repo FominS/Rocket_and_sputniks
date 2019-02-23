@@ -84,7 +84,7 @@ body {
   position: fixed;
   left: calc(50% - 10px);
   top: calc(50% - 300px);
-  animation: circle 10s linear infinite;
+  animation: inner-circle 10s linear infinite;
   transform-origin: 50% 300px;
 }
 

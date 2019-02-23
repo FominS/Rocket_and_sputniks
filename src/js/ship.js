@@ -5,6 +5,7 @@ import Utils from "./utils.js";
 let flight = {}; //fly style
 const utils = new Utils();
 
+
 export class Ship extends React.Component {
   constructor(props) {
     super(props);
@@ -25,10 +26,12 @@ export class Ship extends React.Component {
 
   startShip = () => {
     const node = ReactDOM.findDOMNode(this);
+
+
     const shipElement = node.getElementsByClassName("ship")[0];
     let intervalId = setInterval(this.getCoords, 100);
     this.setState({ intervalId: intervalId, node: shipElement });
-
+ 
     const shipSpeed = utils.getSpeed("ship");
     console.log(
       "ship speed=",
@@ -38,6 +41,7 @@ export class Ship extends React.Component {
     flight = {
       transform: "translate(0, -" + (shipElement.offsetTop + 30) + "px)",
       transition: "all " + shipSpeed + "ms linear"
+
     };
   };
 
@@ -50,6 +54,7 @@ export class Ship extends React.Component {
         type="image/svg+xml"
         data="./svg/ship.svg"
       >
+
         Your browser does not support SVG
       </object>
     );

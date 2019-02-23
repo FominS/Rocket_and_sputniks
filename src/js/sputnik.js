@@ -29,6 +29,7 @@ export class Sputnik extends React.Component {
     this.setState({ intervalId: intervalId, sputnikList: elements });
   }
   componentWillUnmount() {
+    console.log("unmount");
     clearInterval(this.state.intervalId);
   }
 

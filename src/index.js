@@ -10,7 +10,9 @@ const allSpaceElementsCoords = {
   sputnikList: {}
 };
 
+
 //const countOfSputnic = 4;
+
 
 class App extends React.Component {
   constructor(props) {
@@ -53,6 +55,7 @@ class App extends React.Component {
       }
     }
 
+
     //exception sputniks
     for (let i = 0; i < allSpaceElementsCoords.sputnikList.length; i++) {
       if (
@@ -68,6 +71,7 @@ class App extends React.Component {
       }
     }
     return true;
+
   };
 
   render() {
@@ -78,12 +82,14 @@ class App extends React.Component {
             Your browser does not support SVG
           </object>
         </div>
+
         <Sputnik getCurrentCoords={this.getSputnikCoords} count={this.state} />
         <Ship getShipCoords={this.getShipCoords} />
         <Moon getMoonCoords={this.getMoonCoords} />
       </div>
     );
   }
+
 }
 
 const rootElement = document.getElementById("app");
