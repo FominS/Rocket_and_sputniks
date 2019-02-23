@@ -10,6 +10,10 @@ const allSpaceElementsCoords = {
   sputnikList: {}
 };
 
+const countOfSputnic = 4;
+
+let started = false;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -50,7 +54,8 @@ class App extends React.Component {
   };
 
   startShip = () => {
-    this.setState({ start: true });
+    //this.setState({ start: true });
+    started = true;
   };
 
   render() {
@@ -61,12 +66,12 @@ class App extends React.Component {
             Your browser does not support SVG
           </object>
         </div>
-        <Sputnik getCurrentCoords={this.getSputnikCoords} />
-        <Ship startShip={this.state} getShipCoords={this.getShipCoords} />
+        <Sputnik
+          getCurrentCoords={this.getSputnikCoords}
+          count={countOfSputnic}
+        />
+        <Ship startShip={started} getShipCoords={this.getShipCoords} />
         <Moon getMoonCoords={this.getMoonCoords} />
-        <div className="start">
-          <a onClick={this.startShip}>Start</a>
-        </div>
       </div>
     );
   }
